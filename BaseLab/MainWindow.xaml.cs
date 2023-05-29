@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaseLab.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,16 @@ namespace BaseLab
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void Employee_OnClick(object sender, RoutedEventArgs e)
+        {
+            WindowEmployee wEmployee = new WindowEmployee();
+            wEmployee.Show();
+        }
+        private void Role_OnClick(object sender, RoutedEventArgs e)
+        {
+            WindowRole wRole = new WindowRole();
+            wRole.Show();
         }
     }
 }
