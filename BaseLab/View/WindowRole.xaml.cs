@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaseLab.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,13 @@ namespace BaseLab.View
     /// </summary>
     public partial class WindowRole : Window
     {
+        private RoleViewModel vmRole;
         public WindowRole()
         {
             InitializeComponent();
+            RoleViewModel vmRole = new RoleViewModel();
+            lvRole.ItemsSource = vmRole.ListRole;
+            this.vmRole = vmRole;
         }
     }
 }

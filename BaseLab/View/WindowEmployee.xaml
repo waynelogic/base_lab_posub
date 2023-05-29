@@ -6,7 +6,19 @@
         xmlns:local="clr-namespace:BaseLab.View"
         mc:Ignorable="d"
         Title="Сотрудники" Height="300" Width="500">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <ListView x:Name="lvEmployee">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Код" Width="50" DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}"/>
+                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}"/>
+                        <GridViewColumn Header="Должность" DisplayMemberBinding="{Binding Role}"/>
+                        <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding Birthday, StringFormat={}{0:dd\.}{0:MM\.}{0:yyyy}}"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
 </Window>
