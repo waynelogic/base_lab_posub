@@ -29,5 +29,17 @@ namespace BaseLab.ViewModel
                 NameRole = "Менеджер"
             });
         }
+        public int MaxId()
+        {
+            int max = 0;
+            foreach (var obRole in this.ListRole)
+            {
+                if (max < obRole.Id)
+                {
+                    max = obRole.Id;
+                };
+            }
+            return max;
+        }
     }
 }
