@@ -50,5 +50,17 @@ namespace BaseLab.ViewModel
                 Birthday = new DateTime(1983, 05, 10)
             });
         }
+        public int MaxId()
+        {
+            int max = 0;
+            foreach (var obPerson in this.ListPerson)
+            {
+                if (max < obPerson.Id)
+                {
+                    max = obPerson.Id;
+                };
+            }
+            return max;
+        }
     }
 }

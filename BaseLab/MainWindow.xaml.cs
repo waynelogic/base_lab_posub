@@ -1,4 +1,5 @@
 ﻿using BaseLab.View;
+using BaseLab.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,10 @@ namespace BaseLab
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static int IdEmployee { get; set; }
         public static int IdRole { get; set; }
+        internal static PersonViewModel vmPerson { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
