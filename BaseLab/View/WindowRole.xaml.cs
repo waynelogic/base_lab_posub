@@ -25,9 +25,7 @@ namespace BaseLab.View
         public WindowRole()
         {
             InitializeComponent();
-            RoleViewModel vmRole = new RoleViewModel();
-            lvRole.ItemsSource = vmRole.ListRole;
-            this.vmRole = vmRole;
+            DataContext = new RoleViewModel();
         }
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {

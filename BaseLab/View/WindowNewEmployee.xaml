@@ -6,6 +6,18 @@
         xmlns:local="clr-namespace:BaseLab.View"
         mc:Ignorable="d"
         Height="270" Width="300">
+    <Window.Resources>
+        <Style x:Key="Label" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+        </Style>
+        <Style x:Key="FormControl" TargetType="Control">
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
@@ -19,20 +31,16 @@
             <ColumnDefinition Width="40*"/>
             <ColumnDefinition Width="75*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Код:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Должность:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="Фамилия:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
-        <TextBlock Grid.Row="3" Grid.Column="0" Text="Имя:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
-        <TextBlock Grid.Row="4" Grid.Column="0" Text="Дата рождения:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
-
-        <TextBox x:Name="TbId" Grid.Row="0" Grid.Column="1" Text="{Binding Id}" Height="20" Width="50"
-            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" IsEnabled="False"/>
-        <TextBox x:Name="TbLastName" Grid.Row="2" Grid.Column="1" Text="{Binding LastName}" Height="20" Width="130"
-            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-        <TextBox x:Name="TbFirstName" Grid.Row="3" Grid.Column="1" Text="{Binding FirstName}" Height="20" Width="130"
-            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5"/>
-        <ComboBox x:Name="CbRole" Grid.Row="1" Grid.Column="1" Height="20" Width="130" 
-            HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" DisplayMemberPath="NameRole"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Код:" Style="{StaticResource Label}"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Должность:" Style="{StaticResource Label}" />
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Фамилия:" Style="{StaticResource Label}" />
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Имя:" Style="{StaticResource Label}"/>
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Дата рождения:" Style="{StaticResource Label}"/>
+        <TextBox x:Name="TbId" Grid.Row="0" Grid.Column="1" Text="{Binding Id}" Width="50" Style="{StaticResource FormControl}" IsEnabled="False"/>
+        <ComboBox x:Name="CbRole" Grid.Row="1" Grid.Column="1" Style="{StaticResource FormControl}" Width="130" DisplayMemberPath="NameRole"
+            SelectedValue="{Binding Path=RoleId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="Id"/>
+        <TextBox x:Name="TbLastName" Grid.Row="2" Grid.Column="1" Text="{Binding LastName}" Style="{StaticResource FormControl}" Width="130"/>
+        <TextBox x:Name="TbFirstName" Grid.Row="3" Grid.Column="1" Text="{Binding FirstName}" Style="{StaticResource FormControl}" Width="130"/>
         <DatePicker x:Name="ClBirthday" Grid.Row="4" Grid.Column="1" Width="130" HorizontalAlignment="Left" VerticalAlignment="Center" 
             Margin="5,8,0,7" SelectedDate="{Binding Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></DatePicker>
         <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Right">
